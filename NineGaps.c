@@ -300,12 +300,12 @@ int main()
                 return 1;
             //////////////////////////////////////////////////////
         } while (1); // end of the inner loop
-        if (check_game) // display Winning/Losing Message
+        if (check_game) //Displaying Winning/Losing Message
             printf("**** Congratulations!!!****\n ***You Won!!!!*** \n");
         else
-            printf(":( Sorry it is not correct :( \n");
+        printf(":( Sorry it is not correct :( \n");
         printf("#######################################\n");
-        printf("   Do you want to play again? (Yes:1, No:0)\n"); // ask the user to play again
+        printf("   Do you want to play again? (Yes:1, No:0)\n"); //Asks the user to play again
         printf("#######################################\n");
         scanf("%d", &play_again);
         if (!play_again)
