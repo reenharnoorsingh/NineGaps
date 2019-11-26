@@ -1,3 +1,9 @@
+*/
+    Harnoor Singh Reen 
+    110006294
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -63,7 +69,7 @@ int main()
     {
         check_game = 1;
         level = 0;
-        printf("Welcome to Nine-Gaps game!...\n");
+        printf("Welcome to Nine-Gaps game! By Harnoor Singh Reen \n");
         printf("*****************************\n");
         printf("      *****************      \n");
         printf("            *****            \n");
@@ -98,7 +104,7 @@ int main()
         } while (1);
         //////////////////////////////////////////////////
 
-        // generating a random main board by shuffling the main_board
+        //Generation of a random main board by shuffling the main_board
 
         for (i = 0; i < 9; i++)
         {
@@ -110,7 +116,7 @@ int main()
         }
         /////////////////////////////////////////////////
 
-        // 2- generating random operators ( + , - , x ) with number 1,2,3 representing addition, subtraction and multiplication respectively
+        //Generation of random operators ( + , - , x ) with number 1,2,3 representing addition, subtraction and multiplication respectively
 
         int num;
         for (i = 0; i < 12; i++)
@@ -126,7 +132,7 @@ int main()
 
         /////////////////////////////////////////////////
 
-        // 3- Calculate the results in columns and rows
+        //Calculate the results in columns and rows, the creation of the game board
 
         row_results[0] = calculate(main_board[0], operators_array[0], main_board[1], operators_array[1], main_board[2]);
         row_results[1] = calculate(main_board[3], operators_array[2], main_board[4], operators_array[3], main_board[5]);
@@ -136,17 +142,13 @@ int main()
         column_results[2] = calculate(main_board[2], operators_array[8], main_board[5], operators_array[11], main_board[8]);
 
         ///////////////////////////////////////////////////////
-
-        // 4- initializing missing array to 0
-
+        //Initializing missing array to 0
         for (i = 0; i < 9; i++)
         {
             missing_array[i] = 0;
         }
-
         ////////////////////////////////////////////////////////
-
-        // 5- copy the main_board into game_board
+        //Copying the main_board into game_board
 
         for (i = 0; i < 9; i++)
         {
@@ -173,22 +175,18 @@ int main()
 
         ////////////////////////////////////////////////////////
 
-        // 6- Copy the game board into a temporary board
+        //Copy the game board into a temporary board
 
         int temp_board[9];
         for (i = 0; i < 9; i++)
         {
             temp_board[i] = game_board[i];
         }
-
         ///////////////////////////////////////////////////////
-
-        // the inner loop to get values from the user
+        //The inner loop to get values from the user
         do
         {
-
             // Display the game board after each update
-
             printf("Game Board:\n");
             printf("---------------------------------------------------\n");
             for (i = 0; i < 3; i++)
@@ -201,7 +199,6 @@ int main()
                     }
                     printf("\n");
                 }
-
                 for (j = 0; j < 3; j++)
                 { // show the rows
                     if (game_board[(i * 3) + j] != '?')
@@ -211,8 +208,7 @@ int main()
                         printf(" %d?\t ", temp_board[(i * 3) + j]);
                     }
                     else
-                        printf(" ?\t ");
-
+                        printf(" ?\t ");\
                     if (j < 2)
                         printf(" %c\t", operators_array[(i * 2) + j]);
                     else
@@ -228,7 +224,7 @@ int main()
 
             ////////////////////////////////////////////////////////
 
-            // 7- Display the missing values and update the missing_count variable      (COMPLETE THIS PART)
+            //Displaying the missing values and updating the missing_count variable      (COMPLETE THIS PART)
 
             missing_count = 0;
             for (i = 0; i < 9; i++)
@@ -242,17 +238,14 @@ int main()
             }
             printf("\n");
             /////////////////////////////////////////////////////////
-
-            // 8- break if the missing values are empty      (COMPLETE THIS PART)
+            //Break if the missing values are empty      (COMPLETE THIS PART)
             if (missing_count == 0)
             {
                 break;
             }
 
             /////////////////////////////////////////////////////
-
             // Get user's guess (location and value) and check inputs' validity
-
             printf("Enter a row number (1-3), column(1-3), value(One of the missing values):\n");
             int r, c, v;
             scanf("%d %d %d", &r, &c, &v);
@@ -277,8 +270,8 @@ int main()
                 continue;
             }
 
-            // 9- if the selected cell is changeable, add the value into the cell and remove it from the missing values, in other case show an error and repeat the inner loop.
-            //10- Also checks the values
+            // If the selected cell is changeable, add the value into the cell and remove it from the missing values, in other case show an error and repeat the inner loop.
+            //Also checking the values
             int ch = 0;
             switch (r)
             {
