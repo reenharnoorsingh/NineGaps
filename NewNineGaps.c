@@ -79,29 +79,29 @@ int main()
         } while (1);
         //////////////////////////////////////////////////
 
-        //1- generate a random main board by shuffling the manin_board
+        //Generating a random main board by shuffling the manin_board
         shuffle_board(main_board);
 
-        //2- generate random operators ( + , - , x )
+        //Generating random operators ( + , - , x )
         random_operators(operators_array);
 
-        //3- calculate the results in columns and rows
+        //Calculation of the results in columns and rows
         calculate_results(row_results, column_results, main_board, operators_array);
 
-        /// initializing missing array to 0
+        /// Initializing missing array to 0
         for (int i = 0; i < 9; i++)
             missing_array[i] = 0;
 
         ////////////////////////////////////////////////////////
 
-        /// copy the main board into game_board
+        /// Copy the main board into game_board
 
         for (int i = 0; i < 9; i++)
             game_board[i] = main_board[i];
 
         /////////////////////////////////////////////////////////
 
-        //4- Based on the selected level, 3 or 5 or 7 board values will be hidden.
+        //Based on the selected level, 3 or 5 or 7 board values will be hidden.
         set_board(game_board, missing_array, level);
 
         /// Copy the game board into a temporary board
@@ -110,14 +110,13 @@ int main()
 
         ///////////////////////////////////////////////////////
 
-        // the inner loop to get values from the user
+        //Inner loop to get values from the user
         do
         {
 
-            //5- Display the game board after each update
+            //Displaying the game board after each update
             display_board(operators_array, game_board, temp_board, column_results, row_results);
-
-            //6- Display the missing values and update missing_count
+            //Displaying the missing values and update missing_count
             missing_count = display_missing_values(missing_array);
 
             if (missing_count == 0) // break if the missing values are empty
@@ -172,7 +171,7 @@ int main()
 
         } while (1); // end of the inner loop
 
-        //7- check the results
+        //Checking the results
         if (check_results(temp_board, main_board))
             printf("**** Congratulations!!!****\n ***You Won!!!!*** \n"); // display Win/Loose Message
         else
@@ -191,7 +190,7 @@ int main()
     } while (1); // end of the outer loop
 }
 
-//1- generate a random main board by shuffling the manin_board
+//Generating a random main board by shuffling the manin_board
 void shuffle_board(int board[])
 {
     for (int i = 8; i > 0; i--)
@@ -205,7 +204,7 @@ void shuffle_board(int board[])
     }
 }
 
-//2- generate random operators ( + , - , x )
+//Generating random operators ( + , - , x )
 void random_operators(char operators_array[])
 {
 
@@ -222,7 +221,7 @@ void random_operators(char operators_array[])
     }
 }
 
-//3- calculate the results in columns and rows
+//Calculating the results in columns and rows
 void calculate_results(int row_results[], int column_results[], int main_board[], char operators_array[])
 {
 
@@ -266,7 +265,7 @@ void calculate_results(int row_results[], int column_results[], int main_board[]
     }             // end for i
 }
 
-//4- Based on the selected level, 3 or 5 or 7 board values will be hidden.
+//Based on the selected level, 3 or 5 or 7 board values will be hidden.
 void set_board(int game_board[], int missing_array[], int level)
 {
 
@@ -285,7 +284,7 @@ void set_board(int game_board[], int missing_array[], int level)
     }     // end of while
 }
 
-//5- Display the game board after each update
+//Displaying the game board after each update
 void display_board(char operators_array[], int game_board[], int temp_board[], int column_results[], int row_results[])
 {
 
@@ -327,7 +326,7 @@ void display_board(char operators_array[], int game_board[], int temp_board[], i
     printf("\n---------------------------------------------------\n");
 }
 
-//6- Display the missing values and update missing_count
+//Displaying the missing values and update missing_count
 int display_missing_values(int missing_array[])
 {
 
@@ -342,7 +341,7 @@ int display_missing_values(int missing_array[])
     printf("\n---------------------------------------------------\n");
 }
 
-//7- check the results
+//Checking the results
 int check_results(int temp_board[], int main_board[])
 {
 
