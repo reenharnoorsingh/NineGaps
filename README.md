@@ -7,4 +7,4 @@ The goal of the game is really simple. You have to use your wits to place number
 My aim is to complete the game in all the languages as I learn them all
 
 # C
-Completed in November 2019
+Completed in December 2019
