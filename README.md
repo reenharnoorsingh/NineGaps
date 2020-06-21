@@ -8,3 +8,6 @@ My aim is to complete the game in all the languages as I learn them all
 
 # C
 Completed in December 2019
+
+# C++
+Completed in June 2020
