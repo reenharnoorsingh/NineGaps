@@ -4,7 +4,6 @@
 #include <cstdlib>
 using namespace std;
 
-
 int calculate(int a, char x, int b, char y, int c)
 {
     int result;
@@ -37,7 +36,7 @@ int calculate(int a, char x, int b, char y, int c)
     }
     else
     {
-        cout << ("Something went wrong");
+        cout << "Something went wrong";
     }
     return result;
 }
@@ -56,13 +55,57 @@ int main()
     char check_game;                                 // this is a flag variable to determine if the user solves the game correctly
     int play_again;                                  // this is a flag variable to determine if the user wants to play again or not
     int missing_count;                               // this is a variable that keep track of the number of missing values in the game board.
-    srand(time(NULL)); // It generates a seed, using current time, for the random generator
+    srand(time(NULL));                               // It generates a seed, using current time, for the random generator
     do
     {
-        check_game =1;
-        level =0;
-        cout << ("Welcome to NineGaps the game! By Harnoor Singh Reen\n");
-        
+        check_game = 1;
+        level = 0;
+        cout << "Welcome to NineGaps the game! By Harnoor Singh Reen\n";
+        cout << "*****************************\n";
+        cout << "      *****************      \n";
+        cout << "            *****            \n";
+        cout << "              *              \n";
+        do
+        {
+            cout << "Choose the level of difficulty\n";
+            cout << "1- Beginner\n";
+            cout << "2- Intermediate\n";
+            cout << "3- Advanced\n";
+            cout << "4- Expert\n";
+            cin >> level;
+            if ((level < 1) || (level > 4))
+            {
+                cout << "Invalid Value";
+            }
+            else
+            {
+                switch (level)
+                {
+                case 1:
+                    cout << "Beginner Level";
+                    break;
+                case 2:
+                    cout << "Intermediate Level";
+                    break;
+                case 3:
+                    cout << "Advanced Level";
+                    break;
+
+                case 4:
+                    cout << "Expert Level";
+                    break;
+                }
+                break;
+            }
+        } while (1);
+        for (i = 0; i < 9; i++)
+        {
+            int temp = main_board[i];
+            int randomIndex = rand() % 9;
+
+            main_board[i] = main_board[randomIndex];
+            main_board[randomIndex] = temp;
+        }
+
     } while (1);
-    
 }
