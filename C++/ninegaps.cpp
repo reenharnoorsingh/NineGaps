@@ -82,17 +82,17 @@ int main()
                 switch (level)
                 {
                 case 1:
-                    cout << "Beginner Level";
+                    cout << "Beginner Level\n";
                     break;
                 case 2:
-                    cout << "Intermediate Level";
+                    cout << "Intermediate Level\n";
                     break;
                 case 3:
-                    cout << "Advanced Level";
+                    cout << "Advanced Level\n";
                     break;
 
                 case 4:
-                    cout << "Expert Level";
+                   cout << "Expert Level\n";
                     break;
                 }
                 break;
@@ -151,20 +151,20 @@ int main()
         }
         do
         {
-            cout << "Game Board:\n";
-            cout << "---------------------------------------------------\n";
+            printf("Game Board:\n");
+            printf("---------------------------------------------------\n");
             for (i = 0; i < 3; i++)
             {
                 if (i > 0)
-                {
+                { // show the column opertors
                     for (j = 0; j < 3; j++)
                     {
-                        printf("%c\t\t", operators_array[3 * (i + 1) + j]);
+                        printf(" %c\t\t", operators_array[3 * (i + 1) + j]);
                     }
-                    cout << "\n";
+                    printf("\n");
                 }
                 for (j = 0; j < 3; j++)
-                {
+                { // show the rows
                     if (game_board[(i * 3) + j] != '?')
                         printf(" %d\t ", temp_board[(i * 3) + j]);
                     else if (game_board[(i * 3) + j] != temp_board[(i * 3) + j])
@@ -176,15 +176,15 @@ int main()
                     if (j < 2)
                         printf(" %c\t", operators_array[(i * 2) + j]);
                     else
-                        printf("= %d", row_results[i]);
+                        printf("= %d", row_results[i]); // show the rows results
                 }
-                cout << "\n";
+                printf("\n");
                 if (i == 2)
-                    cout << " =\t\t =\t\t =\n";
+                    printf(" =\t\t =\t\t =\n");
             }
-            for (i = 0; i < 3; i++)
-                printf(" &d\t\t", column_results[i]);
-            cout << "\n---------------------------------------------------\n";
+            for (i = 0; i < 3; i++) // show the columnar results
+                printf(" %d\t\t", column_results[i]);
+            printf("\n---------------------------------------------------\n");\
             missing_count = 0;
             for (i = 0; i < 9; i++)
             {
