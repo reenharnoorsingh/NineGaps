@@ -106,6 +106,44 @@ int main()
             main_board[i] = main_board[randomIndex];
             main_board[randomIndex] = temp;
         }
+        int num;
+        for (i = 0; i < 12; i++)
+        {
+            num = (rand() % 3) + 1;
+            if (num == 1)
+                operators_array[i] = '+';
+            else if (num == 2)
+                operators_array[i] = '-';
+            else if (num == 3)
+                operators_array[i] = '*';
+        }
+        row_results[0] = calculate(main_board[0], operators_array[0], main_board[1], operators_array[1], main_board[2]);
+        row_results[1] = calculate(main_board[3], operators_array[2], main_board[4], operators_array[3], main_board[5]);
+        row_results[2] = calculate(main_board[6], operators_array[4], main_board[7], operators_array[5], main_board[8]);
+        column_results[0] = calculate(main_board[0], operators_array[6], main_board[3], operators_array[9], main_board[6]);
+        column_results[1] = calculate(main_board[1], operators_array[7], main_board[4], operators_array[10], main_board[7]);
+        column_results[2] = calculate(main_board[2], operators_array[8], main_board[5], operators_array[11], main_board[8]);
+
+        for (i = 0; i < 9; i++)
+        {
+            missing_array[i] = 0;
+        }
+        for (i = 0; i < 9; i++)
+        {
+            game_board[i] = main_board[i];
+        }
+        i = 0;
+        while (i < level * 2 + 1)
+        {
+            int r = rand() % 3;
+            int c = rand() % 3;
+            if (game_board[3 * r + c] != '?')
+            {
+                missing_array[game_board[3 * r + c] - 1] = game_board[3 * r + c];
+                game_board[3 * r + c] = '?';
+                i++;
+            }
+        }
 
     } while (1);
 }
