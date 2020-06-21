@@ -240,9 +240,61 @@ int main()
             case 2:
                 for (i = 3; i < 6; i++)
                 {
+                    if (main_board[i] == v)
+                    {
+                        if (c == i - 2)
+                        {
+                            temp_board[i] = v;
+                            ch = 1;
+                        }
+                    }
                 }
+                if (ch == 0)
+                    cout << "\nIncorrect. Re-enter value\n";
+                break;
+            case 3:
+                for (i = 6; i < 9; i++)
+                {
+                    if (main_board[i] == v)
+                    {
+                        if (c == i - 5)
+                        {
+                            temp_board[i] = v;
+                            ch = 1;
+                        }
+                    }
+                }
+                if (ch == 0)
+                    cout << "\nIncorrect. Re-enter value\n";
+                break;
+            default:
+                cout << "\nIncorrect. Re-enter value\n";
             }
+            if(ch ==1)
+            {
+                if (missing_array[v - 1] >= 1)
+                {
+                    missing_array[v - 1] = 0;
+                }
+                else
+                    cout<< "\nPlease try again\n";
+                continue;
+            }
+            if(missing_count ==0)
+                return 1;
         } while (1);
-
+        if (check_game) //Displaying Winning/Losing Message
+            cout<< "**** Congratulations!!!****\n ***You Won!!!!*** \n";
+        else
+        cout<<":( Sorry it is not correct :( \n";
+        cout<<"#######################################\n";
+        cout<<"   Do you want to play again? (Yes:1, No:0)\n"; //Asks the user to play again
+        cout<<"#######################################\n";
+        cin>> play_again;
+        if (!play_again)
+        {
+            printf("Bye!");
+            break;
+        }
     } while (1);
 }
