@@ -75,7 +75,7 @@ int main()
             cin >> level;
             if ((level < 1) || (level > 4))
             {
-                cout << "Invalid Value";
+                cout << "Invalid Value\n";
             }
             else
             {
