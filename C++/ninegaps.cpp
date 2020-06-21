@@ -144,6 +144,105 @@ int main()
                 i++;
             }
         }
+        int temp_board[9];
+        for (i = 0; i < 9; i++)
+        {
+            temp_board[i] = game_board[i];
+        }
+        do
+        {
+            cout << "Game Board:\n";
+            cout << "---------------------------------------------------\n";
+            for (i = 0; i < 3; i++)
+            {
+                if (i > 0)
+                {
+                    for (j = 0; j < 3; j++)
+                    {
+                        printf("%c\t\t", operators_array[3 * (i + 1) + j]);
+                    }
+                    cout << "\n";
+                }
+                for (j = 0; j < 3; j++)
+                {
+                    if (game_board[(i * 3) + j] != '?')
+                        printf(" %d\t ", temp_board[(i * 3) + j]);
+                    else if (game_board[(i * 3) + j] != temp_board[(i * 3) + j])
+                    {
+                        printf(" %d?\t ", temp_board[(i * 3) + j]);
+                    }
+                    else
+                        printf(" ?\t ");
+                    if (j < 2)
+                        printf(" %c\t", operators_array[(i * 2) + j]);
+                    else
+                        printf("= %d", row_results[i]);
+                }
+                cout << "\n";
+                if (i == 2)
+                    cout << " =\t\t =\t\t =\n";
+            }
+            for (i = 0; i < 3; i++)
+                printf(" &d\t\t", column_results[i]);
+            cout << "\n---------------------------------------------------\n";
+            missing_count = 0;
+            for (i = 0; i < 9; i++)
+            {
+                if (missing_array[i] != 0)
+                {
+                    printf("%d\t", missing_array[i]);
+                    missing_count++;
+                }
+            }
+            cout << "\n";
+            if (missing_count == 0)
+            {
+                break;
+            }
+            cout << "Enter a row number (1-3), column(1-3), value(One of the missing values):\n";
+            int r, c, v;
+            cin >> r >> c >> v;
+            if (r == 0 || c == 0 || v == 0)
+                break;
+            if (r < 1 || r > 3 || c < 1 || c > 3)
+            {
+                cout << "Invalid row and/or column numbers. Try again.";
+                continue;
+            }
+            if (v < 1 || v > 9)
+            {
+                cout << "Invalid cell value. Try again.";
+                continue;
+            }
+            if (missing_array[v - 1] < 1)
+            {
+                cout << "This value is already there. Try again.";
+                continue;
+            }
+            int ch = 0;
+            switch (r)
+            {
+            case 1:
+                for (i = 0; i < 3; i++)
+                {
+                    if (main_board[i] == v)
+                    {
+                        if (c == i + 1)
+                        {
+                            temp_board[i] = v;
+                            ch = 1;
+                        }
+                    }
+                }
+                if (ch == 0)
+                    cout << "\nIncorrect. Re-enter value\n";
+                break;
+            case 2:
+                for (i = 3; i < 6; i++)
+                {
+                }
+            }
+        } while (1);
 
     } while (1);
 }
