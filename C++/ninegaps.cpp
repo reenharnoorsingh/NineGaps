@@ -151,8 +151,8 @@ int main()
         }
         do
         {
-            printf("Game Board:\n");
-            printf("---------------------------------------------------\n");
+            cout << "Game Board:\n";
+            cout << "---------------------------------------------------\n";
             for (i = 0; i < 3; i++)
             {
                 if (i > 0)
@@ -184,7 +184,7 @@ int main()
             }
             for (i = 0; i < 3; i++) // show the columnar results
                 printf(" %d\t\t", column_results[i]);
-            printf("\n---------------------------------------------------\n");\
+            cout << "\n---------------------------------------------------\n";
             missing_count = 0;
             for (i = 0; i < 9; i++)
             {
