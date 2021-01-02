@@ -1,6 +1,6 @@
 public class NineGaps {
     public static int calculate(int a, char x, int b, char y, int c) {
-        int result;
+        int result = 0;
         if (x == '+') {
             if (y == '+')
                 result = a + b + c;
@@ -23,24 +23,36 @@ public class NineGaps {
             else if (y == '*')
                 result = a * b * c;
         } else {
-            System.out.println("Something Went Wrong!");
+            System.out.println("Something went wrong");
         }
         return result;
     }
 
     public static void main(String[] args) {
-    int main_board[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // It defines the main board to store all the values from 1-9
-    int missing_array[9];                            // This line generates an array of size 9 to keep track of missing values
-    int game_board[9];                               // It defines an array to form the actual game board with random numbers and hidden values
-    int temp_board[9];                               // It defines an array which is a copy of the game_board and will be displayed to the user and will be updated in each iteration
-    int row_results[3];                              // this is an array that stores the results of calculation of each row
-    int column_results[3];                           // this is an array that stores the results of calculation of each column
-    char operators_array[12];                        // this is an array that stores random operations
-    int i, j;                                        // these variables will be used for loop indexes
-    int rand_num, temp1;                             // rand_num will be used to store the result of random number generations, temp1 will be used as a temporary variable
-    int level;                                       // this variable stores the level of difficulty
-    char check_game;                                 // this is a flag variable to determine if the user solves the game correctly
-    int play_again;                                  // this is a flag variable to determine if the user wants to play again or not
-    int missing_count;                               // this is a variable that keep track of the number of missing values in the game board.
+        int [] mainBoard = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int [] missingArray;
+        int [] gameBoard;
+        int [] tempBoard;
+        int [] rowResults;
+        int [] columnResults;
+        char [] operatorsArray;
+        int i,j;
+        int randNum, temp1;
+        int level;
+        int checkGame;
+        int playAgain;
+        int missingCount;
+        do {
+            checkGame=1;
+            level=0;
+            System.out.println("Welcome to Nine-Gaps game! By Harnoor Singh Reen \n");
+            System.out.println("*****************************\n");
+            System.out.println("      *****************      \n");
+            System.out.println("            *****            \n");
+            System.out.println("              *              \n");
+            do {
+                System.out.println("Choose the level of difficulty (1-Beginner, 2-Intermediate, 3-Advanced, 4-Expert):");
+            }while (true);
+        }while (true);
     }
 }
