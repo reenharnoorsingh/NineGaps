@@ -134,8 +134,20 @@ public class NineGaps {
                 for (i = 0; i < 3; i++) {
                     if (i > 0) {
                         for (j = 0; j < 3; j++) {
-                            //System.out.println(" %c\t\t", operatorsArray[3 * (i + 1) + j]);
+                            System.out.printf(" %c\t\t", operatorsArray[3 * (i + 1) + j]);
                         }
+                    }
+                    for (j = 0; j < 3; j++) {
+                        if (gameBoard[(i * 3) + j] != '?')
+                            System.out.printf(" %d\t ", tempBoard[(i * 3) + j]);
+                        else if (gameBoard[(i * 3) + j] != tempBoard[(i * 3) + j])
+                            System.out.printf(" %d?\t ", tempBoard[(i * 3) + j]);
+                        else
+                            System.out.printf(" ?\t ");
+                        if (j < 2)
+                            System.out.printf(" %c\t", operatorsArray[(i * 2) + j]);
+                        else
+                            System.out.printf("= %d", rowResults[i]);
                     }
                 }
             } while (true);
