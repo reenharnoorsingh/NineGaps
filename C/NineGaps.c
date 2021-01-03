@@ -180,7 +180,7 @@ int main()
                         printf(" %d?\t ", temp_board[(i * 3) + j]);
                     }
                     else
-                        printf(" ?\t ");\
+                        printf(" ?\t ");
                     if (j < 2)
                         printf(" %c\t", operators_array[(i * 2) + j]);
                     else
